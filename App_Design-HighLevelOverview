@@ -1,0 +1,27 @@
+
+
+
+							Main Menu
+
+-Change Character
+>Start
+	-Pause Menu
+		-Restart
+		-Continue
+		-Quit to Main Menu
+	-Gameplay
+		>Controls
+			-Jump
+				-Double Jump
+		-Physics
+		-Randomly Generated Level
+			-(Predefined or Restricted Random) Object Blocks
+				-Static Obstacles
+				-Moving Obstacles
+			-Collectables
+		-Checkpoints
+		-Game Over Logic
+			-Scenarios:
+				(Hit an Obstacle
+				(Fall to Death
+				(...
