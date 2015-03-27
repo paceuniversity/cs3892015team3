@@ -55,9 +55,6 @@
      <None Include="Assets\Example Games\Hat Trick - The Catch Game\Fonts\LuckiestGuy\LICENSE.txt" />
      <None Include="Assets\Example Games\2D Scrolling Shooter\_ReadMe.txt" />
      <None Include="Assets\Fonts\PressStart2P-Regular\OFL.txt" />
- <Reference Include="Assembly-UnityScript">
- <HintPath>/Users/alvinlawson/cs3892015team3/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
