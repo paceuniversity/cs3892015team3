@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{46C7BAF2-50CB-E6E0-BE77-D69E1F2C9507}</ProjectGuid>
+	<ProjectGuid>{14A3476F-E095-EC5E-8E64-7B210C4A6488}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -56,7 +56,7 @@
      <None Include="Assets\Example Games\2D Scrolling Shooter\_ReadMe.txt" />
      <None Include="Assets\Fonts\PressStart2P-Regular\OFL.txt" />
  <Reference Include="Assembly-UnityScript">
- <HintPath>/Users/barak/Projects/Unity4School/MathRunner/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ <HintPath>/Users/alvinlawson/cs3892015team3/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -88,7 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-vs.csproj">
-      <Project>{753A3CF3-0472-81CA-661F-EA94D37FB267}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
+      <Project>{D8AC7670-FA02-9AA7-E32C-9AFBD2A3BA81}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

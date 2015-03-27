@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{68324CEC-8379-A13E-BCC8-096AEBEF0C2E}</ProjectGuid>
+	<ProjectGuid>{A1F4BDE6-5EB2-F656-210C-53FB3B3BFBF0}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\BackgroundOffset.js" />
      <Compile Include="Assets\Scripts\CameraFollow.js" />
      <Compile Include="Assets\Scripts\EndlessTrack.js" />
+     <Compile Include="Assets\Scripts\Pause.js" />
      <Compile Include="Assets\Scripts\PlayerControl.js" />
      <None Include="Assets\Example Games\Flappy Bird Style\_ReadMe.txt" />
      <None Include="Assets\Fonts\LuckiestGuy\LICENSE.txt" />
