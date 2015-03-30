@@ -69,5 +69,5 @@
 'Assets/Scripts/BackgroundOffset.js'
 'Assets/Scripts/CameraFollow.js'
 'Assets/Scripts/EndlessTrack.js'
-'Assets/Scripts/Pause.js'
+'Assets/Scripts/Menu.js'
 'Assets/Scripts/PlayerControl.js'
