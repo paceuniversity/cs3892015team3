@@ -1,7 +1,10 @@
 #pragma strict
 
+var speed:Number = 10;
 var jumps:Number = 2;
+var jumpHeight:Number = 1;
 private var jumpCount:Number = 0;
+public var currentNumber:Number = 0;
 
 function Start () {
 }
@@ -26,7 +29,7 @@ function Update () {
 
 function Move(direction:Number) {
 	// Move Character at Constant Speed
-	var speed:Number = 10;
+	
 	(this.GetComponent.<Rigidbody2D>() as Rigidbody2D).velocity.x = speed * direction;
 }
 
@@ -44,7 +47,7 @@ function Jump() {
 	// Increment Jump Counter
 	jumpCount ++;
 	// Make Player Jump
-	this.GetComponent.<Rigidbody2D>().AddForce(Vector2(0,700));
+	this.GetComponent.<Rigidbody2D>().AddForce(Vector2(0,200*jumpHeight));
 }
 
 function LandedOnPlatform() {
@@ -74,6 +77,11 @@ function Animate(type:String) {
 	} else if (type == "float") {
 		animator.Play("FloatAnimation");
 	}
+}
+
+function Collected(amount:Number) {
+	currentNumber += amount;
+	print(currentNumber);
 }
 
 

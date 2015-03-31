@@ -20,7 +20,7 @@ function FollowX () {
 		return;
 	}
 	
-	this.transform.position.x = target.transform.position.x;
+	this.transform.position.x = target.transform.position.x + 4;
 }
 
 function FollowY () {

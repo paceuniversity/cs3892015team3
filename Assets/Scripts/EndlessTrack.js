@@ -15,16 +15,14 @@ function Start () {
 function Update () {
 	playerX = player.transform.position.x;
 
-	if (playerX >= currentTrack.transform.position.x) {
+	if (playerX >= currentTrack.transform.position.x - 2) {
 		Layout(true);
-	} else if (playerX <= behindTrack.transform.position.x) {
-		Layout(false);
 	}
 }
 
 function Layout (forward:boolean) {
-	var currentTrackSize:Number = (currentTrack.GetComponent.<Collider2D>() as BoxCollider2D).bounds.size.x;
-	var behindTrackSize:Number = (behindTrack.GetComponent.<Collider2D>() as BoxCollider2D).bounds.size.x;
+	var currentTrackSize:Number = (currentTrack.GetComponentInChildren.<Collider2D>() as BoxCollider2D).bounds.size.x;
+	var behindTrackSize:Number = (behindTrack.GetComponentInChildren.<Collider2D>() as BoxCollider2D).bounds.size.x;
 	
 	// Whichever track is Behind, Gets put in front of the frontmost track
 	if (currentTrackNum == "1") {
@@ -36,9 +34,9 @@ function Layout (forward:boolean) {
 	
 	
 	if (forward) {
-		behindTrack.transform.position.x = currentTrack.transform.position.x + currentTrackSize*0.5 + behindTrackSize*0.5;
+		behindTrack.transform.position.x = currentTrack.transform.position.x + currentTrackSize*0.5 + behindTrackSize*0.5 -1;
 	} else {
-		currentTrack.transform.position.x = behindTrack.transform.position.x - currentTrackSize*0.5 - behindTrackSize*0.5;
+		currentTrack.transform.position.x = behindTrack.transform.position.x - currentTrackSize*0.5 - behindTrackSize*0.5 -1;
 	}
 	// This gets called once Player is 0.5 the width of the current track
 	
