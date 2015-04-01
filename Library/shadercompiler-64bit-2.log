@@ -1,32 +1,41 @@
 Base path: /Applications/Unity/Unity.app/Contents
-Pipe name: \\.\pipe\UnityShaderCompiler-64bit-2-698871808
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-2-698310656
 Cmd: getPlatforms
 Cmd: compileSnippet
-  api=9 type=0 insize=1051 outsize=1050 kw= ok=1
+  api=9 type=0 insize=6731 outsize=3259 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
 Cmd: compileSnippet
-  api=9 type=1 insize=1051 outsize=7 kw= ok=1
+  api=14 type=0 insize=6731 outsize=2510 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
 Cmd: compileSnippet
-  api=9 type=0 insize=1089 outsize=862 kw= ok=1
+  api=9 type=0 insize=6731 outsize=4830 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF VERTEXLIGHT_ON ok=1
 Cmd: compileSnippet
-  api=14 type=0 insize=1089 outsize=895 kw= ok=1
+  api=9 type=1 insize=6731 outsize=7 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF ok=1
 Cmd: compileSnippet
-  api=9 type=1 insize=1089 outsize=7 kw= ok=1
+  api=9 type=0 insize=3569 outsize=2863 kw=POINT ok=1
 Cmd: compileSnippet
-  api=9 type=0 insize=6481 outsize=20531 kw= ok=1
+  api=14 type=0 insize=3569 outsize=1720 kw=POINT ok=1
 Cmd: compileSnippet
-  api=14 type=0 insize=6481 outsize=686 kw= ok=1
+  api=9 type=0 insize=3569 outsize=2333 kw=DIRECTIONAL ok=1
 Cmd: compileSnippet
-  api=9 type=1 insize=6481 outsize=7 kw= ok=1
+  api=5 type=0 insize=3569 outsize=3181 kw=SPOT ok=1
 Cmd: compileSnippet
-  api=14 type=1 insize=6481 outsize=22256 kw= ok=1
+  api=14 type=0 insize=3569 outsize=1720 kw=SPOT ok=1
 Cmd: compileSnippet
-  api=9 type=0 insize=723 outsize=630 kw= ok=1
+  api=9 type=0 insize=3569 outsize=2951 kw=POINT_COOKIE ok=1
 Cmd: compileSnippet
-  api=9 type=1 insize=723 outsize=7 kw= ok=1
+  api=5 type=0 insize=3569 outsize=2737 kw=DIRECTIONAL_COOKIE ok=1
 Cmd: compileSnippet
-  api=9 type=0 insize=1079 outsize=1213 kw= ok=1
+  api=14 type=0 insize=3569 outsize=1720 kw=DIRECTIONAL_COOKIE ok=1
 Cmd: compileSnippet
-  api=9 type=1 insize=1079 outsize=7 kw= ok=1
-End of pipe
-
-Quitting shader compiler process
+  api=9 type=1 insize=3569 outsize=7 kw=POINT ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=3569 outsize=6 kw=DIRECTIONAL ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=3569 outsize=7 kw=DIRECTIONAL ok=1
+Cmd: compileSnippet
+  api=14 type=1 insize=3569 outsize=1368 kw=DIRECTIONAL ok=1
+Cmd: compileSnippet
+  api=5 type=1 insize=3569 outsize=6 kw=POINT_COOKIE ok=1
+Cmd: compileSnippet
+  api=9 type=1 insize=3569 outsize=7 kw=POINT_COOKIE ok=1
+Cmd: compileSnippet
+  api=14 type=1 insize=3569 outsize=2188 kw=POINT_COOKIE ok=1

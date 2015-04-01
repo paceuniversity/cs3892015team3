@@ -1,10 +1,15 @@
 #pragma strict
+import UnityEngine.UI;
 
 var speed:Number = 10;
+var scoreText:UnityEngine.UI.Text;
 private var myRigidbody:Rigidbody2D;
+public var currentNumber:Number = 0;
+public var goalNumber:Number = 26;
 
 function Start () {
 	myRigidbody = this.GetComponent.<Rigidbody2D>();
+	Application.targetFrameRate = 60;
 }
 
 function Update () {
@@ -58,7 +63,8 @@ function Animate(type:String) {
 }
 
 function Collected(amount:Number) {
-	print("+" + amount.ToString());
+	currentNumber += amount;
+	scoreText.text = currentNumber.ToString() + "/" + goalNumber.ToString();
 }
 
 

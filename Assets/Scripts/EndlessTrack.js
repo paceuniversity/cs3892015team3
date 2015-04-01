@@ -31,6 +31,9 @@ function Layout (forward:boolean) {
 		behindTrack = GameObject.Find("Track1");
 	}
 	
+	for (var i in behindTrack.GetComponentsInChildren.<CollectableNumber>()) {
+		i.Activate();
+	}
 	
 	
 	if (forward) {
