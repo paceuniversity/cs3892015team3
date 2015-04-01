@@ -4,6 +4,8 @@ var jumps:Number = 2;
 private var jumpCount:Number = 0;
 
 function Start () {
+	score.text = "0/15";
+	//both numbers (numerator and denominator) should reset after each checkpoint
 }
 
 function Update () {
@@ -76,4 +78,15 @@ function Animate(type:String) {
 	}
 }
 
+//changed Start function up top
+private var points : int = 0;
+var score : GUIText;
+//need to copy and paste Goal_Text from UI onto the script of the character
 
+function AcquireAtom(col : Collision) {
+	if(col.collider.name == "Atom") {
+		Destroy(col.gameObject);
+		//points += val.gameObject;
+		score.text = points + "/15";
+	}
+}
