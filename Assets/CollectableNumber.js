@@ -12,10 +12,10 @@ function Start () {
 
 function SetRandomValue() {
 	var changeNegative:Number = 0.2;
-	var playerScript = (player.GetComponent.<NewPlayerControl>() as NewPlayerControl);
-	if (playerScript.currentNumber > playerScript.goalNumber) {
-		changeNegative = 0.7;
-	}
+//	var playerScript = (player.GetComponent.<NewPlayerControl>() as NewPlayerControl);
+//	if (playerScript.currentNumber > playerScript.goalNumber) {
+//		changeNegative = 0.7;
+//	}
 
 	// Random Between 1 - 3
 	numberValue = Random.Range(1,4);

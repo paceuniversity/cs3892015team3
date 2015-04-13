@@ -7,7 +7,7 @@ private var jumpCount:Number = 0;
 public var currentNumber:Number = 0;
 
 function Start () {
-	score.text = "0/15";
+	//score.text = "0/15";
 	//both numbers (numerator and denominator) should reset after each checkpoint
 }
 

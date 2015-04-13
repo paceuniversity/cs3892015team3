@@ -68,6 +68,7 @@
 'Assets/BlockGridGenerator.js'
 'Assets/CollectableGenerator.js'
 'Assets/CollectableNumber.js'
+'Assets/LevelGenerator.js'
 'Assets/Scripts/BackgroundOffset.js'
 'Assets/Scripts/CameraFollow.js'
 'Assets/Scripts/EndlessTrack.js'
