@@ -58,8 +58,26 @@ function SwitchGravity() {
 	if (Time.timeScale != 0) {
 		myRigidbody.gravityScale *= -1;
 		myRigidbody.AddForce(Vector3(0,-100*myRigidbody.gravityScale,0));
+		
+		// Flip
+//		myRigidbody.rotation += 180;
+		FlipCharacter();
+		
 	} else {
 		//print("Paused");
+	}
+}
+
+function FlipCharacter() {
+	var dir = 1;
+	if (myRigidbody.gravityScale < 0) {
+		dir = -1;
+	}
+	var target = 18;
+	
+	for(var i = 0; i < target; i++) {
+		myRigidbody.rotation += 10*dir;
+		yield WaitForSeconds(0.00001);
 	}
 }
 
@@ -124,45 +142,45 @@ function UpdateText() {
 
 function UpdateUI() {
 	// Adjust Penalty Meter
-		AnimatePenaltyMeter();
+		//AnimatePenaltyMeter();
 	
 }
 
-function AnimatePenaltyMeter(newHeight:Number) {
-	var frames = 60;
-	//var heightDifference:Number = penaltyMeter.transform.localScale.y - newHeight;
-    for (var f = 0; f < frames; f ++) {
-    	
-//        var c = renderer.material.color;
-//        c.a = f;
-//        renderer.material.color = c;
-        yield;
-    }
-}
+//function AnimatePenaltyMeter(newHeight:Number) {
+//	var frames = 60;
+//	//var heightDifference:Number = penaltyMeter.transform.localScale.y - newHeight;
+//    for (var f = 0; f < frames; f ++) {
+//    	
+////        var c = renderer.material.color;
+////        c.a = f;
+////        renderer.material.color = c;
+//        yield;
+//    }
+//}
 ///// C H E C K P O I N T S
 
-function ReachedCheckpoint(level:int) {
-	if (level <= checkpointLevel) {
-		return;
-	}
-	
-	// Increment Level
-	checkpointLevel++;
-	
-	// Tally Penalties
-	var difference:int = Mathf.abs(currentNumber - goalNumber);
-	penaltyNumber += difference;
-	UpdateUI();
-	
-	// Check GameOver
-	if (penaltyNumber >= maxPenalty) {
-		//Game Over Menu Transition
-	}
-	
-	// Create New Goal
-	currentNumber = 0;
-	goalNumber += 2;
-	UpdateText();
-}
+//function ReachedCheckpoint(level:int) {
+//	if (level <= checkpointLevel) {
+//		return;
+//	}
+//	
+//	// Increment Level
+//	checkpointLevel++;
+//	
+//	// Tally Penalties
+//	var difference:int = Mathf.abs(currentNumber - goalNumber);
+//	penaltyNumber += difference;
+//	UpdateUI();
+//	
+//	// Check GameOver
+//	if (penaltyNumber >= maxPenalty) {
+//		//Game Over Menu Transition
+//	}
+//	
+//	// Create New Goal
+//	currentNumber = 0;
+//	goalNumber += 2;
+//	UpdateText();
+//}
 
 
