@@ -1,15 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/NewPlayerControl.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MainMenuScript.js">
     <Files>
-      <File FileName="Assets/LevelGenerator.js" Line="22" Column="36" />
+      <File FileName="Assets/Scripts/NewPlayerControl.js" Line="156" Column="5" />
+      <File FileName="Assets/LevelGenerator.js" Line="1" Column="1" />
       <File FileName="Assets/BlockGridGenerator.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/PlayerControl.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/NewPlayerControl.js" Line="150" Column="20" />
       <File FileName="Assets/Scripts/EndlessTrack.js" Line="1" Column="1" />
       <File FileName="Assets/CollectableGenerator.js" Line="1" Column="1" />
       <File FileName="Assets/CollectableNumber.js" Line="1" Column="1" />
+      <File FileName="Assets/CheckpointScript.js" Line="1" Column="1" />
+      <File FileName="Assets/MainMenu.js" Line="28" Column="29" />
       <File FileName="Assets/Scripts/PauseMenu.js" Line="1" Column="1" />
+      <File FileName="Assets/MainMenuScript.js" Line="9" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

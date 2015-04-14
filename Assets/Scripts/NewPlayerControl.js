@@ -3,13 +3,16 @@ import UnityEngine.UI;
 
 var speed:Number = 10;
 var scoreText:UnityEngine.UI.Text;
+var checkpointText:UnityEngine.UI.Text;
+var penaltyMeterSlider:UnityEngine.UI.Slider;
+var pauseMenu:GameObject;
 private var myRigidbody:Rigidbody2D;
 
-public var currentNumber:Number = 0;
-public var goalNumber:Number = 26;
+private var currentNumber:int = 0;
+public var goalNumber:int = 10;
 
-private var penaltyNumber:Number = 0;
-private var maxPenalty:Number = 15;
+private var penaltyNumber:int = 0;
+var maxPenalty:int = 30;
 
 private var topLimit:Number = 11.4;
 private var bottomLimit:Number = 1;
@@ -22,6 +25,8 @@ function Start () {
 	Application.targetFrameRate = 60;
 	//this.GetComponent.<Rigidbody2D>().gravityScale = 0;
 	startGravity = myRigidbody.gravityScale;
+	penaltyMeterSlider.maxValue = maxPenalty;
+	UpdateText();
 }
 
 function Update () {
@@ -138,6 +143,7 @@ function Collected(amount:Number) {
 
 function UpdateText() {
 	scoreText.text = currentNumber.ToString() + "/" + goalNumber.ToString();
+	checkpointText.text = "Checkpoint #" + checkpointLevel.ToString();
 }
 
 function UpdateUI() {
@@ -146,41 +152,36 @@ function UpdateUI() {
 	
 }
 
-//function AnimatePenaltyMeter(newHeight:Number) {
-//	var frames = 60;
-//	//var heightDifference:Number = penaltyMeter.transform.localScale.y - newHeight;
-//    for (var f = 0; f < frames; f ++) {
-//    	
-////        var c = renderer.material.color;
-////        c.a = f;
-////        renderer.material.color = c;
-//        yield;
-//    }
-//}
-///// C H E C K P O I N T S
+function AnimatePenaltyMeter() {
+	var difference = penaltyNumber - penaltyMeterSlider.value;
+    for (var f = 0; f < difference; f ++) {
+    	penaltyMeterSlider.value ++;
+        yield;
+    }
+}
+/// C H E C K P O I N T S
 
-//function ReachedCheckpoint(level:int) {
-//	if (level <= checkpointLevel) {
-//		return;
-//	}
-//	
-//	// Increment Level
-//	checkpointLevel++;
-//	
-//	// Tally Penalties
-//	var difference:int = Mathf.abs(currentNumber - goalNumber);
-//	penaltyNumber += difference;
-//	UpdateUI();
-//	
-//	// Check GameOver
-//	if (penaltyNumber >= maxPenalty) {
-//		//Game Over Menu Transition
-//	}
-//	
-//	// Create New Goal
-//	currentNumber = 0;
-//	goalNumber += 2;
-//	UpdateText();
-//}
+function ReachedCheckpoint() {
+	// Increment Level
+	checkpointLevel++;
+	speed += 0.5;
+	// Tally Penalties
+	var difference:int = Mathf.Abs(currentNumber - goalNumber);
+	penaltyNumber += difference;
+	UpdateUI();
+	
+	// Check GameOver
+	if (penaltyNumber >= maxPenalty) {
+		//Game Over Menu Transition
+		pauseMenu.GetComponent.<PauseMenu>().TransitionToMenu();
+	}
+	
+	AnimatePenaltyMeter();
+	
+	// Create New Goal
+	currentNumber = 0;
+	goalNumber += 1;
+	UpdateText();
+}
 
 

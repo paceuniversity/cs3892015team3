@@ -47,9 +47,13 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\BlockGridGenerator.js" />
+     <Compile Include="Assets\CheckpointScript.js" />
      <Compile Include="Assets\CollectableGenerator.js" />
      <Compile Include="Assets\CollectableNumber.js" />
      <Compile Include="Assets\LevelGenerator.js" />
+     <Compile Include="Assets\MainMenu.js" />
+     <Compile Include="Assets\MainMenuScript.js" />
+     <Compile Include="Assets\NewBehaviourScript.js" />
      <Compile Include="Assets\Scripts\BackgroundOffset.js" />
      <Compile Include="Assets\Scripts\CameraFollow.js" />
      <Compile Include="Assets\Scripts\EndlessTrack.js" />

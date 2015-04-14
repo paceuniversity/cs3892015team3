@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Checkpoint.cs" />
      <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Background.cs" />
      <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Bullet.cs" />
      <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\DestroyArea.cs" />
