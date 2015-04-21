@@ -1,8 +1,23 @@
 ﻿#pragma strict
+import System.Collections.Hashtable;
+import UnityEngine.Canvas;
+import UnityEngine.CanvasRenderer;
+import Holoville.HOTween;
+//import Pixelplacement.iTween;
 
 var overlay:GameObject;
+var menuCanvas:UnityEngine.Canvas;
+var canvasRenderers = new Array();
+public static var canvasAlpha:Number = 1;
+var tracks:Transform[];
 
 function Start () {
+	Time.timeScale = 1;
+	canvasAlpha = 1;
+	for (var r in menuCanvas.GetComponentsInChildren.<CanvasRenderer>()) {
+		canvasRenderers.push(r);
+	}
+
 	(overlay.GetComponent.<Image>() as UnityEngine.UI.Image).enabled = true;
 	(overlay.GetComponent.<Image>() as UnityEngine.UI.Image).color.a = 1;
 	for (var f = 0; f < 20; f ++) {
@@ -13,14 +28,36 @@ function Start () {
 }
 
 function begin () {
+	print("begin");
 	StartTransition();
 }
 
 function StartTransition () {
-	(overlay.GetComponent.<Image>() as UnityEngine.UI.Image).enabled = true;
-	for (var f = 0; f < 20; f ++) {
-    	(overlay.GetComponent.<Image>() as UnityEngine.UI.Image).color.a += 0.05;
-        yield;
-    }
-    Application.LoadLevel("GravityScene");
+	print(canvasAlpha);
+	var ht = new System.Collections.Hashtable();
+	ht.Add("from",1.0);
+	ht.Add("to",0.0);
+	ht.Add("onupdate","UpdateAlpha");
+	ht.Add("oncomplete","StartGame");
+	ht.Add("time",0.5);
+	ht.Add("easetype","spring");
+	
+	iTween.ValueTo(this.gameObject,ht);
+	//var tween = HOTween.To(this,0.5,new TweenParms().Prop("canvasAlpha", 0).Ease(EaseType.EaseOutQuad).OnUpdate(UpdateAlpha).OnComplete(StartGame).AutoKill(true));    
+	//tween.Play();
+}
+
+private function UpdateAlpha (val:Number) {
+	
+	for (var r in this.canvasRenderers) {
+		(r as CanvasRenderer).SetAlpha(val);
+	}
+	for (var t in this.tracks) {
+		t.localPosition.y = 12 - (2 - (val*2));
+	}
+}
+
+private function StartGame () {
+	print("startgame");
+	Application.LoadLevel("GravityScene");
 }

@@ -1,12 +1,14 @@
 #pragma strict
 import UnityEngine.UI;
+import Holoville.HOTween;
+import Holoville.HOTween.Plugins;
 
 var speed:Number = 10;
 var scoreText:UnityEngine.UI.Text;
 var checkpointText:UnityEngine.UI.Text;
 var penaltyMeterSlider:UnityEngine.UI.Slider;
 var pauseMenu:GameObject;
-private var myRigidbody:Rigidbody2D;
+public static var myRigidbody:Rigidbody2D;
 
 private var currentNumber:int = 0;
 public var goalNumber:int = 10;
@@ -19,6 +21,8 @@ private var bottomLimit:Number = 1;
 private var alignedBottom:boolean = true;
 private var startGravity:Number = 0;
 private var checkpointLevel:int = 0;
+private var tempGravity:Number=0;
+private var moving:boolean = true;
 
 function Start () {
 	myRigidbody = this.GetComponent.<Rigidbody2D>();
@@ -46,8 +50,10 @@ function FixedUpdate() {
 
 function Move(direction:Number) {
 	// Move Character at Constant Speed
-	
-	(this.GetComponent.<Rigidbody2D>() as Rigidbody2D).velocity.x = speed * direction;
+	if (moving) {
+		myRigidbody.velocity.x = speed*direction;
+	}
+	//(this.GetComponent.<Rigidbody2D>() as Rigidbody2D).velocity.x = speed * direction;
 }
 
 function tapped() {
@@ -74,16 +80,23 @@ function SwitchGravity() {
 }
 
 function FlipCharacter() {
-	var dir = 1;
+	var target = 0;
 	if (myRigidbody.gravityScale < 0) {
-		dir = -1;
+		target = -180;
 	}
-	var target = 18;
 	
-	for(var i = 0; i < target; i++) {
-		myRigidbody.rotation += 10*dir;
-		yield WaitForSeconds(0.00001);
-	}
+	var ht = System.Collections.Hashtable();
+	ht.Add("from",myRigidbody.rotation);
+	ht.Add("to",target);
+	ht.Add("time",0.6);
+	ht.Add("easetype","easeOutQuad");
+	ht.Add("onupdate","UpdateRotation");
+	iTween.ValueTo(this.gameObject,ht);
+	//HOTween.To(myRigidbody,0.4,new TweenParms().Prop("rotation", target).Ease(EaseType.EaseInQuad));
+}
+
+function UpdateRotation(val:Number) {
+	myRigidbody.rotation = val;
 }
 
 function Magnetize() {
@@ -158,10 +171,46 @@ function AnimatePenaltyMeter() {
     	penaltyMeterSlider.value ++;
         yield;
     }
+    // Check GameOver
+	if (penaltyNumber >= maxPenalty) {
+		//Game Over Menu Transition
+		pauseMenu.GetComponent.<PauseMenu>().TransitionToMenu();
+	}
 }
 /// C H E C K P O I N T S
 
+var cP:Transform;
+function PullIntoCheckpoint(cp:Transform) {
+	this.cP = cp;
+	this.tempGravity = myRigidbody.gravityScale;
+	myRigidbody.gravityScale = 0;
+	//myRigidbody.velocity = Vector3.zero;
+	
+	this.moving = false;
+	
+	var ht = new System.Collections.Hashtable();
+	ht.Add("time", 0.3);
+	ht.Add("from",0);
+	ht.Add("to",1);
+	ht.Add("easetype","easeInQuad");
+	ht.Add("onupdate","UpdatePull");
+	ht.Add("oncomplete","ReachedCheckpoint");
+	iTween.ValueTo(this.gameObject,ht);
+	 //ReachedCheckpoint();
+}
+
+function UpdatePull() {
+	var xForce = this.cP.position.x-myRigidbody.transform.position.x;
+	var yForce = this.cP.transform.position.y - myRigidbody.transform.position.y;
+	myRigidbody.AddForce(Vector2(xForce*10,yForce*10));
+}
+
 function ReachedCheckpoint() {
+
+	this.moving = true;
+
+	myRigidbody.gravityScale = this.tempGravity;
+	myRigidbody.AddForce(Vector2(100,0));
 	// Increment Level
 	checkpointLevel++;
 	speed += 0.5;
@@ -170,18 +219,31 @@ function ReachedCheckpoint() {
 	penaltyNumber += difference;
 	UpdateUI();
 	
-	// Check GameOver
-	if (penaltyNumber >= maxPenalty) {
-		//Game Over Menu Transition
-		pauseMenu.GetComponent.<PauseMenu>().TransitionToMenu();
-	}
-	
 	AnimatePenaltyMeter();
 	
 	// Create New Goal
 	currentNumber = 0;
 	goalNumber += 1;
 	UpdateText();
+}
+
+
+// O B S T A C L E S 
+
+function Hit(pos:Vector3) {
+	var direction:Number;
+	
+	if (pos.y < myRigidbody.transform.position.y) {
+		direction = -1;
+	} else {
+		direction = 1;
+	}
+
+	penaltyNumber += 2;
+	AnimatePenaltyMeter();
+	
+	myRigidbody.velocity.y = 0;
+	myRigidbody.AddForce(Vector2(0,direction * 500));
 }
 
 

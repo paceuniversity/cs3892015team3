@@ -21,8 +21,8 @@ function Update () {
 }
 
 function Layout (forward:boolean) {
-	var currentTrackSize:Number = (currentTrack.GetComponentInChildren.<Collider2D>() as BoxCollider2D).bounds.size.x;
-	var behindTrackSize:Number = (behindTrack.GetComponentInChildren.<Collider2D>() as BoxCollider2D).bounds.size.x;
+	var currentTrackSize:Number = 27.30667;//(currentTrack.GetComponentInChildren.<Collider2D>() as BoxCollider2D).bounds.size.x;
+	var behindTrackSize:Number = 27.30667;//(behindTrack.GetComponentInChildren.<Collider2D>() as BoxCollider2D).bounds.size.x;
 	
 	// Whichever track is Behind, Gets put in front of the frontmost track
 	if (currentTrackNum == "1") {

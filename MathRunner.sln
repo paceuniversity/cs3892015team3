@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{055D9637-7DC3-4328-D29D-DC7BDB5068E6}") = "MathRunner", "Assembly-CSharp-firstpass.csproj", "{19842011-BFBF-B28F-BC04-ECD72F6EB26E}"
+EndProject
 Project("{055D9637-7DC3-4328-D29D-DC7BDB5068E6}") = "MathRunner", "Assembly-CSharp.csproj", "{753A3CF3-0472-81CA-661F-EA94D37FB267}"
 EndProject
 Project("{055D9637-7DC3-4328-D29D-DC7BDB5068E6}") = "MathRunner", "Assembly-CSharp-Editor.csproj", "{46C7BAF2-50CB-E6E0-BE77-D69E1F2C9507}"
@@ -13,6 +15,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19842011-BFBF-B28F-BC04-ECD72F6EB26E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19842011-BFBF-B28F-BC04-ECD72F6EB26E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19842011-BFBF-B28F-BC04-ECD72F6EB26E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19842011-BFBF-B28F-BC04-ECD72F6EB26E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{753A3CF3-0472-81CA-661F-EA94D37FB267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{753A3CF3-0472-81CA-661F-EA94D37FB267}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{753A3CF3-0472-81CA-661F-EA94D37FB267}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -29,7 +35,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																		GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
