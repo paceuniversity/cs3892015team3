@@ -1,13 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MainMenuScript.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/NewPlayerControl.js">
     <Files>
-      <File FileName="Assets/Scripts/EndlessTrack.js" Line="3" Column="5" />
-      <File FileName="Assets/Scripts/PauseMenu.js" Line="29" Column="123" />
+      <File FileName="Assets/Scripts/EndlessTrack.js" Line="25" Column="42" />
+      <File FileName="Assets/Scripts/PauseMenu.js" Line="75" Column="19" />
       <File FileName="Assets/_HOTween Examples/Path Basics/PathBasics.cs" Line="9" Column="30" />
-      <File FileName="Assets/Scripts/CameraFollow.js" Line="7" Column="35" />
-      <File FileName="Assets/Scripts/NewPlayerControl.js" Line="83" Column="98" />
-      <File FileName="Assets/MainMenuScript.js" Line="36" Column="15" />
+      <File FileName="Assets/Scripts/CameraFollow.js" Line="26" Column="10" />
+      <File FileName="Assets/Scripts/NewPlayerControl.js" Line="207" Column="46" />
+      <File FileName="Assets/MainMenuScript.js" Line="43" Column="27" />
+      <File FileName="Assets/Plugins/Pixelplacement/iTween/Sample/MoveSample.cs" Line="7" Column="21" />
+      <File FileName="Assets/CheckpointScript.js" Line="6" Column="71" />
+      <File FileName="Assets/Plugins/Pixelplacement/iTween/iTween.cs" Line="6193" Column="21" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

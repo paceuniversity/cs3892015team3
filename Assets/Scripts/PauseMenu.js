@@ -72,10 +72,12 @@ function Pause() {
 	if (Time.timeScale == 0) {
 		Time.timeScale = 1;
 		overlay.active = false;
+		iTween.Resume();
 		//((overlay as GameObject).GetComponent.<Image>() as UnityEngine.UI.Image).color.a = 0;
 	} else {
 		Time.timeScale = 0;
 		overlay.active = true;
+		iTween.Pause();
 		iTween.FadeTo(overlay,0,2);
 		//iTween.FadeTo(overlay,1,0.5);
 		//((overlay as GameObject).GetComponent.<Image>() as UnityEngine.UI.Image).color.a = 0.5;

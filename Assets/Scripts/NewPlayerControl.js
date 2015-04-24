@@ -33,10 +33,14 @@ function Start () {
 	UpdateText();
 }
 
+function tester(){
+	print("click?");
+}
+
 function Update () {
 	// Detects Mouse Click or Touch Screen Tap
 	if (Input.GetMouseButtonDown(0)) {
-		SwitchGravity();
+		//SwitchGravity();
 	}
 	
 	// Run Forward
@@ -202,7 +206,7 @@ function PullIntoCheckpoint(cp:Transform) {
 function UpdatePull() {
 	var xForce = this.cP.position.x-myRigidbody.transform.position.x;
 	var yForce = this.cP.transform.position.y - myRigidbody.transform.position.y;
-	myRigidbody.AddForce(Vector2(xForce*10,yForce*10));
+	myRigidbody.AddForce(Vector2(xForce*10,yForce*18));
 }
 
 function ReachedCheckpoint() {
