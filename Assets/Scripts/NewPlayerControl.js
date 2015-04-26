@@ -8,13 +8,15 @@ var scoreText:UnityEngine.UI.Text;
 var checkpointText:UnityEngine.UI.Text;
 var penaltyMeterSlider:UnityEngine.UI.Slider;
 var pauseMenu:GameObject;
+var sprites:UnityEngine.Sprite[];
+private var tempScore:int = 0;
 public static var myRigidbody:Rigidbody2D;
 
 private var currentNumber:int = 0;
 public var goalNumber:int = 10;
 
 private var penaltyNumber:int = 0;
-var maxPenalty:int = 30;
+private var maxPenalty:int = 20;
 
 private var topLimit:Number = 11.4;
 private var bottomLimit:Number = 1;
@@ -25,6 +27,8 @@ private var tempGravity:Number=0;
 private var moving:boolean = true;
 
 function Start () {
+	GetComponent.<SpriteRenderer>().sprite = sprites[PlayerPrefs.GetInt("Character")];
+	
 	myRigidbody = this.GetComponent.<Rigidbody2D>();
 	Application.targetFrameRate = 60;
 	//this.GetComponent.<Rigidbody2D>().gravityScale = 0;
@@ -178,29 +182,36 @@ function AnimatePenaltyMeter() {
     // Check GameOver
 	if (penaltyNumber >= maxPenalty) {
 		//Game Over Menu Transition
-		pauseMenu.GetComponent.<PauseMenu>().TransitionToMenu();
+		if (tempScore > PlayerPrefs.GetInt("Highscore")){
+			PlayerPrefs.SetInt("Highscore",tempScore);
+		}
+		this.moving = false;
+		pauseMenu.GetComponent.<PauseMenu>().GameOver(tempScore,checkpointLevel);
 	}
 }
 /// C H E C K P O I N T S
 
 var cP:Transform;
 function PullIntoCheckpoint(cp:Transform) {
-	this.cP = cp;
-	this.tempGravity = myRigidbody.gravityScale;
-	myRigidbody.gravityScale = 0;
-	//myRigidbody.velocity = Vector3.zero;
-	
-	this.moving = false;
-	
-	var ht = new System.Collections.Hashtable();
-	ht.Add("time", 0.3);
-	ht.Add("from",0);
-	ht.Add("to",1);
-	ht.Add("easetype","easeInQuad");
-	ht.Add("onupdate","UpdatePull");
-	ht.Add("oncomplete","ReachedCheckpoint");
-	iTween.ValueTo(this.gameObject,ht);
-	 //ReachedCheckpoint();
+	ReachedCheckpoint();
+	return;
+
+//	this.cP = cp;
+//	this.tempGravity = myRigidbody.gravityScale;
+//	myRigidbody.gravityScale = 0;
+//	//myRigidbody.velocity = Vector3.zero;
+//	
+//	this.moving = false;
+//	
+//	var ht = new System.Collections.Hashtable();
+//	ht.Add("time", 0.3);
+//	ht.Add("from",0);
+//	ht.Add("to",1);
+//	ht.Add("easetype","easeInQuad");
+//	ht.Add("onupdate","UpdatePull");
+//	ht.Add("oncomplete","ReachedCheckpoint");
+//	iTween.ValueTo(this.gameObject,ht);
+//	 //ReachedCheckpoint();
 }
 
 function UpdatePull() {
@@ -213,8 +224,8 @@ function ReachedCheckpoint() {
 
 	this.moving = true;
 
-	myRigidbody.gravityScale = this.tempGravity;
-	myRigidbody.AddForce(Vector2(100,0));
+	//myRigidbody.gravityScale = this.tempGravity;
+	//myRigidbody.AddForce(Vector2(100,0));
 	// Increment Level
 	checkpointLevel++;
 	speed += 0.5;
@@ -224,6 +235,8 @@ function ReachedCheckpoint() {
 	UpdateUI();
 	
 	AnimatePenaltyMeter();
+	
+	tempScore += goalNumber - difference;
 	
 	// Create New Goal
 	currentNumber = 0;
