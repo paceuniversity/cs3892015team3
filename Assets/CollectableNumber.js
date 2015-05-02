@@ -10,6 +10,10 @@ function Start () {
 	
 }
 
+function Refresh() {
+
+}
+
 function SetRandomValue() {
 	var changeNegative:Number = 0.2;
 //	var playerScript = (player.GetComponent.<NewPlayerControl>() as NewPlayerControl);

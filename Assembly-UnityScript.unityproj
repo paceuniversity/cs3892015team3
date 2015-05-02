@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\PlayerControl.js" />
      <Compile Include="Assets\Scripts\SimpleBlockGenerator.js" />
      <Compile Include="Assets\StaticObstacle.js" />
+     <Compile Include="Assets\TrackScript.js" />
      <None Include="Assets\Example Games\Flappy Bird Style\_ReadMe.txt" />
      <None Include="Assets\Plugins\HOTween_License.txt" />
      <None Include="Assets\Fonts\LuckiestGuy\LICENSE.txt" />

@@ -22,7 +22,7 @@ private var topLimit:Number = 11.4;
 private var bottomLimit:Number = 1;
 private var alignedBottom:boolean = true;
 private var startGravity:Number = 0;
-private var checkpointLevel:int = 0;
+static public var checkpointLevel:int = 0;
 private var tempGravity:Number=0;
 private var moving:boolean = true;
 
