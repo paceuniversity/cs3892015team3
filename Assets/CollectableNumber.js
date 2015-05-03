@@ -10,8 +10,8 @@ function Start () {
 	
 }
 
-function Refresh() {
-
+function Refresh(num:int,goal:int) {
+	
 }
 
 function SetRandomValue() {
