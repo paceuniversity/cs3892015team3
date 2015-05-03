@@ -1,18 +1,30 @@
 ﻿#pragma strict
 
-private var numberCollection:[GameObject] = [];
-private var obstacleCollection:[GameObject] = [];
+private var numberCollection:GameObject[] = [];
+private var obstacleCollection:GameObject[] = [];
 
 private var numberCurrentAmount:int = 0;
 private var obstacleCurrentAmount:int = 0;
 
-private var numberAmountPerLevel = [5,6,8,10]
-private var obstacleAmountPerLevel = [0,1,2,4,6]
+private var numberAmountPerLevel = [5,6,8,10];
+private var obstacleAmountPerLevel = [0,1,2,4,6];
 
 private var player:GameObject;
 
 function Start () {
 	player = GameObject.FindWithTag("Player");
+	GetObjects();
+}
+
+function GetObjects () {
+	for(var child : Transform in this.transform){
+    	if(child.gameObject.tag == "Number"){
+        	numberCollection += child;
+    	}
+    	if(child.gameObject.tag == "Obstacle"){
+        	obstacleCollection += child;
+    	}
+ 	}
 }
 
 function Update () {
@@ -20,16 +32,16 @@ function Update () {
 }
 
 function OnTrackSwitch() {
-	
+	RandomActivate();
 }
 
 function RandomActivate() {
 	var numberArray = RandomizedArray(this.numberCollection);
 	var obstacleArray = RandomizedArray(this.obstacleCollection);
 	
-	var lvl = player.GetComponent.<PlayerScript>().checkpointLevel;
-	var playerNum = player.GetComponent.<PlayerScript>().currentNumber;
-	var playerGoal = player.GetComponent.<PlayerScript>().goalNumber;
+	var lvl = player.GetComponent.<NewPlayerControl>().checkpointLevel;
+	var playerNum = player.GetComponent.<NewPlayerControl>().currentNumber;
+	var playerGoal = player.GetComponent.<NewPlayerControl>().goalNumber;
 	
 	if(lvl > obstacleAmountPerLevel.Length){
 		lvl = obstacleAmountPerLevel.Length;
@@ -55,13 +67,20 @@ function RandomActivate() {
 
 
 
-function RandomizedArray(a:[GameObject]) -> [GameObject]{
-	var b:[GameObject] = [];
+function RandomizedArray(a:GameObject[]){
+	var array:GameObject[] = [];
 	
 	for (var o in a) {
-		b += o;
+		array += o;
 	}
 	
-	return b;
+    for (var i = array.Length - 1; i > 0; i--) {
+        var j = Mathf.Floor(Random.value * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+	
+	return array;
 }
 

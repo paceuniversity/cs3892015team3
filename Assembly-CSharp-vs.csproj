@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Checkpoint.cs" />
      <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Background.cs" />
      <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Bullet.cs" />
      <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\DestroyArea.cs" />
@@ -77,6 +76,7 @@
      <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_Score.cs" />
      <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_SetParticleSortingLayer.cs" />
      <Compile Include="Assets\Example Games\Hat Trick - The Catch Game\Scripts\HT_StartGame.cs" />
+     <Compile Include="Assets\Scripts\Checkpoint.cs" />
      <Compile Include="Assets\_HOTween Examples\Path Basics\PathBasics.cs" />
      <Compile Include="Assets\_HOTween Examples\_Common Stuff\FPSCounter.cs" />
      <None Include="Assets\Example Games\Flappy Bird Style\_ReadMe.txt" />

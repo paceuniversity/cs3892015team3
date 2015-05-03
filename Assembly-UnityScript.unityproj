@@ -46,24 +46,24 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BlockGridGenerator.js" />
-     <Compile Include="Assets\CheckpointScript.js" />
-     <Compile Include="Assets\CollectableGenerator.js" />
-     <Compile Include="Assets\CollectableNumber.js" />
-     <Compile Include="Assets\LevelGenerator.js" />
-     <Compile Include="Assets\MainMenu.js" />
-     <Compile Include="Assets\MainMenuScript.js" />
-     <Compile Include="Assets\NewBehaviourScript.js" />
      <Compile Include="Assets\Scripts\BackgroundOffset.js" />
+     <Compile Include="Assets\Scripts\BlockGridGenerator.js" />
      <Compile Include="Assets\Scripts\CameraFollow.js" />
+     <Compile Include="Assets\Scripts\CheckpointScript.js" />
+     <Compile Include="Assets\Scripts\CollectableGenerator.js" />
+     <Compile Include="Assets\Scripts\CollectableNumber.js" />
      <Compile Include="Assets\Scripts\EndlessTrack.js" />
      <Compile Include="Assets\Scripts\FontSizeIncreaser.js" />
+     <Compile Include="Assets\Scripts\LevelGenerator.js" />
+     <Compile Include="Assets\Scripts\MainMenu.js" />
+     <Compile Include="Assets\Scripts\MainMenuScript.js" />
+     <Compile Include="Assets\Scripts\NewBehaviourScript.js" />
      <Compile Include="Assets\Scripts\NewPlayerControl.js" />
      <Compile Include="Assets\Scripts\PauseMenu.js" />
      <Compile Include="Assets\Scripts\PlayerControl.js" />
      <Compile Include="Assets\Scripts\SimpleBlockGenerator.js" />
-     <Compile Include="Assets\StaticObstacle.js" />
-     <Compile Include="Assets\TrackScript.js" />
+     <Compile Include="Assets\Scripts\StaticObstacle.js" />
+     <Compile Include="Assets\Scripts\TrackScript.js" />
      <None Include="Assets\Example Games\Flappy Bird Style\_ReadMe.txt" />
      <None Include="Assets\Plugins\HOTween_License.txt" />
      <None Include="Assets\Fonts\LuckiestGuy\LICENSE.txt" />
