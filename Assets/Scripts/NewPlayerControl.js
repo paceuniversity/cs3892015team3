@@ -9,11 +9,12 @@ var checkpointText:UnityEngine.UI.Text;
 var penaltyMeterSlider:UnityEngine.UI.Slider;
 var pauseMenu:GameObject;
 var sprites:UnityEngine.Sprite[];
+var trackLooper:EndlessTrack;
 private var tempScore:int = 0;
 public static var myRigidbody:Rigidbody2D;
 
-private var currentNumber:int = 0;
-public var goalNumber:int = 10;
+static public var currentNumber:int = 0;
+static public var goalNumber:int = 10;
 
 private var penaltyNumber:int = 0;
 private var maxPenalty:int = 20;
@@ -34,6 +35,7 @@ function Start () {
 	//this.GetComponent.<Rigidbody2D>().gravityScale = 0;
 	startGravity = myRigidbody.gravityScale;
 	penaltyMeterSlider.maxValue = maxPenalty;
+	penaltyMeterSlider.value = maxPenalty;
 	UpdateText();
 }
 
@@ -174,9 +176,9 @@ function UpdateUI() {
 }
 
 function AnimatePenaltyMeter() {
-	var difference = penaltyNumber - penaltyMeterSlider.value;
+	var difference = Mathf.Abs((penaltyMeterSlider.maxValue - penaltyNumber) - penaltyMeterSlider.value);
     for (var f = 0; f < difference; f ++) {
-    	penaltyMeterSlider.value ++;
+    	penaltyMeterSlider.value --;
         yield;
     }
     // Check GameOver
@@ -236,11 +238,13 @@ function ReachedCheckpoint() {
 	
 	AnimatePenaltyMeter();
 	
+	trackLooper.RefreshTracks();
+	
 	tempScore += goalNumber - difference;
 	
 	// Create New Goal
 	currentNumber = 0;
-	goalNumber += 1;
+	goalNumber += 2;
 	UpdateText();
 }
 

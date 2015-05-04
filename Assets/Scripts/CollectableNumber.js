@@ -1,6 +1,7 @@
 ﻿#pragma strict
 
 var numberValue:Number = 2;
+var sprites:UnityEngine.Sprite[];
 private var player:GameObject;
 
 
@@ -27,6 +28,9 @@ function SetRandomValue() {
 	// Chance of Being Negative
 	if (Random.value < changeNegative) {
 		numberValue *= -1;
+		this.GetComponent.<SpriteRenderer>().sprite = sprites[1];
+	} else {
+		this.GetComponent.<SpriteRenderer>().sprite = sprites[0];
 	}
 	
 	// Change Text to Input Number

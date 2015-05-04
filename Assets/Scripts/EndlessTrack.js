@@ -20,9 +20,14 @@ function Update () {
 	}
 }
 
+function RefreshTracks() {
+	currentTrack.GetComponent.<TrackScript>().OnTrackSwitch();
+	behindTrack.GetComponent.<TrackScript>().OnTrackSwitch();
+}
+
 function Layout (forward:boolean) {
-	var currentTrackSize:Number = 27.30667;//(currentTrack.GetComponentInChildren.<Collider2D>() as BoxCollider2D).bounds.size.x;
-	var behindTrackSize:Number = 27.30667;//(behindTrack.GetComponentInChildren.<Collider2D>() as BoxCollider2D).bounds.size.x;
+	var currentTrackSize:Number = 63;//(currentTrack.GetComponentInChildren.<Collider2D>() as BoxCollider2D).bounds.size.x;
+	var behindTrackSize:Number = 63;//(behindTrack.GetComponentInChildren.<Collider2D>() as BoxCollider2D).bounds.size.x;
 	
 	// Whichever track is Behind, Gets put in front of the frontmost track
 	if (currentTrackNum == "1") {
@@ -57,6 +62,7 @@ function SetTrack () {
 }
 
 function SwitchTrack () {
+	print("Switchin Tracks");
 	if (currentTrackNum == "1") {
 		currentTrackNum = "2";
 	} else {
