@@ -82,9 +82,9 @@ public function ChangeCharacter (dir:int) {
 	selectedCharacter += dir;
 	
 	if (selectedCharacter < 0) {
-		selectedCharacter = 1;
+		selectedCharacter = 2;
 	}
-	if (selectedCharacter > 1) {
+	if (selectedCharacter > 2) {
 		selectedCharacter = 0;
 	}
 	

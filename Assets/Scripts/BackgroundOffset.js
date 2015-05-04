@@ -16,5 +16,5 @@ function SetOffset() {
 	var xOffset:Number = ( (target.transform.position.x) / (ratio*2) ) *0.3;
 	var offset:Vector2 = new Vector2(xOffset, yOffset);
     this.GetComponent.<Renderer>().sharedMaterial.SetTextureOffset ("_MainTex", offset);
-    print("Offset  " + xOffset);
+//    print("Offset  " + xOffset);
 }

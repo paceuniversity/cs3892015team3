@@ -6,12 +6,15 @@ import System.Collections.Hashtable;
 
 var overlay:GameObject;
 var screenOverlay:GameObject;
+var bgoverlay:GameObject;
 var menuCanvas:GameObject;
 var gameoverCanvas:GameObject;
 var goScore:UnityEngine.UI.Text;
 var goCP:UnityEngine.UI.Text;
 var goHighscore:UnityEngine.UI.Text;
 var goButton:GameObject;
+var indicatorText:GameObject;
+
 public static var time = 0.01;
 public static var overlayAlpha:Number = 1;
 private var canvasRenderers = new Array();
@@ -53,12 +56,60 @@ function Start () {
 	iTween.ValueTo(this.gameObject,ht);
 	HOTween.To(this,0.5,new TweenParms().Prop("time",1).Ease(EaseType.EaseOutQuad).OnUpdate(ChangeTime).UpdateType(UpdateType.Update));
 	
+	
+	var ht2 = new System.Collections.Hashtable();
+	ht2.Add("from",0);
+	ht2.Add("to",1);
+	ht2.Add("delay",0.5);
+	ht2.Add("easetype","spring");
+	ht2.Add("onupdate","UpdateOverlay");
+	ht2.Add("time",1.5);
+	iTween.ValueTo(this.gameObject,ht2);
+	
+	StartIndicator();
+	
 }
+
+function StartIndicator() {
+	var ht3 = new System.Collections.Hashtable();
+	ht3.Add("from",0);
+	ht3.Add("to",1);
+	ht3.Add("delay",1);
+	ht3.Add("easetype","spring");
+	ht3.Add("onupdate","");
+	ht3.Add("oncomplete","HideIndicator");
+	ht3.Add("onstart","ShowIndicator");
+	ht3.Add("time",2.5);
+	iTween.ValueTo(this.gameObject,ht3);
+}
+
+private function ShowIndicator() {
+	var playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent.<NewPlayerControl>();
+	indicatorText.SetActive(true);
+	indicatorText.GetComponent.<UnityEngine.UI.Text>().text = "Wormhole #" + (playerScript.checkpointLevel +1).ToString();
+	for (var t : Transform in indicatorText.transform) {
+		t.gameObject.GetComponent.<UnityEngine.UI.Text>().text = "Get to " + playerScript.goalNumber.ToString();
+	}
+	//indicatorText.GetComponentInChildren.<UnityEngine.UI.Text>().text = "Get to " + playerScript.goalNumber.ToString();
+	
+}
+
+private function HideIndicator() {
+	indicatorText.SetActive(false);
+}
+
 
 private function UpdateCanvasAlpha (val:Number) {
 	for (var r in this.canvasRenderers) {
 		(r as CanvasRenderer).SetAlpha(val);
-		
+	}
+}
+
+private function UpdateOverlay (val:Number) {
+	bgoverlay.GetComponent.<SpriteRenderer>().color.a = 1-val;
+	//print("Alpha:  " + bgoverlay.GetComponent.<SpriteRenderer>().color.a);
+	if (1-val < 0.05) {
+		bgoverlay.SetActive(false);
 	}
 }
 

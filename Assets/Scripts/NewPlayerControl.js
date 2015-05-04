@@ -30,6 +30,11 @@ private var moving:boolean = true;
 function Start () {
 	GetComponent.<SpriteRenderer>().sprite = sprites[PlayerPrefs.GetInt("Character")];
 	
+	checkpointLevel = 0;
+	goalNumber = 10;
+	speed = 5;
+	currentNumber = 0;
+	
 	myRigidbody = this.GetComponent.<Rigidbody2D>();
 	Application.targetFrameRate = 60;
 	//this.GetComponent.<Rigidbody2D>().gravityScale = 0;
@@ -166,7 +171,7 @@ function Collected(amount:Number) {
 
 function UpdateText() {
 	scoreText.text = currentNumber.ToString() + "/" + goalNumber.ToString();
-	checkpointText.text = "Checkpoint #" + checkpointLevel.ToString();
+	checkpointText.text = "Wormhole #" + (checkpointLevel+1).ToString();
 }
 
 function UpdateUI() {
@@ -226,6 +231,7 @@ function ReachedCheckpoint() {
 
 	this.moving = true;
 
+	
 	//myRigidbody.gravityScale = this.tempGravity;
 	//myRigidbody.AddForce(Vector2(100,0));
 	// Increment Level
@@ -246,6 +252,10 @@ function ReachedCheckpoint() {
 	currentNumber = 0;
 	goalNumber += 2;
 	UpdateText();
+	
+	if (penaltyNumber < maxPenalty) {
+		pauseMenu.GetComponent.<PauseMenu>().StartIndicator();
+	}
 }
 
 
