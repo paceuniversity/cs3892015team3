@@ -33,8 +33,8 @@ function GetObjects () {
     	}
  	}
  	
- 	print(numberCollection.length);
- 	print(obstacleCollection.length);
+// 	print(numberCollection.length);
+// 	print(obstacleCollection.length);
 }
 
 function Update () {
@@ -60,6 +60,8 @@ function RandomActivate() {
 	var playerNum = playerScript.currentNumber;
 	var playerGoal = playerScript.goalNumber;
 	
+	print("Level: " + lvl);
+	
 	if(lvl > obstacleAmountPerLevel.Length-1){
 		lvl = obstacleAmountPerLevel.Length-1;
 	}
@@ -72,23 +74,23 @@ function RandomActivate() {
 		(numberArray[i2] as GameObject).SetActive(false);
 	}
 	
-	print("Finished Nums");
+//	print("Finished Nums");
 	
 	// Choose Amount of Obstacles
 	for(var i3=0;i3 < obstacleAmountPerLevel[lvl];i3++){
-		print("inside loop");
+//		print("inside loop");
 		(obstacleArray[i3] as GameObject).SetActive(true);
 		
 		(obstacleArray[i3] as GameObject).GetComponent.<StaticObstacle>().Refresh(lvl);
 	}
-	print("Past loop");
+//	print("Past loop");
 	for(var i4=obstacleAmountPerLevel[lvl];i4 < obstacleArray.length;i4++){
-		print("inside another loop");
-		print("i4: " + i4 + " , length: " + obstacleArray.length);
+//		print("inside another loop");
+//		print("i4: " + i4 + " , length: " + obstacleArray.length);
 		(obstacleArray[i4] as GameObject).SetActive(false);
 	}
 	
-	print("Finished Obstacles");
+//	print("Finished Obstacles");
 }
 
 

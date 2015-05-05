@@ -104,6 +104,6 @@ private function UpdateAlpha (val:Number) {
 }
 
 private function StartGame () {
-	print("startgame");
+//	print("startgame");
 	Application.LoadLevel("GravityScene");
 }

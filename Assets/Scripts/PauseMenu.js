@@ -14,6 +14,7 @@ var goCP:UnityEngine.UI.Text;
 var goHighscore:UnityEngine.UI.Text;
 var goButton:GameObject;
 var indicatorText:GameObject;
+var musicSource:AudioSource;
 
 public static var time = 0.01;
 public static var overlayAlpha:Number = 1;
@@ -148,12 +149,14 @@ function Pause() {
 		Time.timeScale = 1;
 		overlay.active = false;
 		iTween.Resume();
+		//musicSource.volume = 0.5;
 		//((overlay as GameObject).GetComponent.<Image>() as UnityEngine.UI.Image).color.a = 0;
 	} else {
 		Time.timeScale = 0;
 		overlay.active = true;
 		iTween.Pause();
 		iTween.FadeTo(overlay,0,2);
+		//musicSource.volume = 0.2;
 		//iTween.FadeTo(overlay,1,0.5);
 		//((overlay as GameObject).GetComponent.<Image>() as UnityEngine.UI.Image).color.a = 0.5;
 	}
@@ -211,8 +214,8 @@ public function GameOver(score:int,cp:int) {
 	print("C");
 	// Animate Checkpoint Num
 	var ht2 = new System.Collections.Hashtable();
-	ht2.Add("from",0);
-	ht2.Add("to",cp);
+	ht2.Add("from",1);
+	ht2.Add("to",cp+1);
 	ht2.Add("delay",0.6);
 	ht2.Add("easetype","easeOutQuad");
 	ht2.Add("onupdate","UpdateCP");

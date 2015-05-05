@@ -23,12 +23,14 @@ private var topLimit:Number = 11.4;
 private var bottomLimit:Number = 1;
 private var alignedBottom:boolean = true;
 private var startGravity:Number = 0;
-static public var checkpointLevel:int = 0;
+public var checkpointLevel:int = 0;
 private var tempGravity:Number=0;
 private var moving:boolean = true;
 
 function Start () {
 	GetComponent.<SpriteRenderer>().sprite = sprites[PlayerPrefs.GetInt("Character")];
+	
+	//this.GetComponent.<Animator>().
 	
 	checkpointLevel = 0;
 	goalNumber = 10;
@@ -42,6 +44,38 @@ function Start () {
 	penaltyMeterSlider.maxValue = maxPenalty;
 	penaltyMeterSlider.value = maxPenalty;
 	UpdateText();
+	
+	Animate("s");
+	
+	print("My Level: " + checkpointLevel);
+}
+
+function Animate(type:String) {
+	// Shortcut Variable for Animator
+	var animator:Animator = (this.GetComponent.<Animator>() as Animator);
+	var charType:int = PlayerPrefs.GetInt("Character");
+	// Stop All Existing Animations
+	animator.StopPlayback();
+	
+	
+	if (charType == 0) {
+		animator.Play("liger_running");
+	} else if (charType == 1) {
+		animator.Play("unicorn_runing");
+	} else { 
+		animator.Play("leopard_running");
+	}
+	
+	
+	
+	// Play Animation Depending on Type
+//	if (type == "run") {
+//		animator.Play("RunAnimation");
+//	} else if (type == "jump") {
+//		animator.Play("JumpAnimation");
+//	} else if (type == "float") {
+//		animator.Play("FloatAnimation");
+//	}
 }
 
 function tester(){
@@ -147,22 +181,22 @@ function Magnetize() {
 	this.GetComponent.<Rigidbody2D>().AddForce(Vector2(0,force));
 }
 
-function Animate(type:String) {
-	// Shortcut Variable for Animator
-	var animator:Animator = (this.GetComponent.<Animator>() as Animator);
-	
-	// Stop All Existing Animations
-	animator.StopPlayback();
-	
-	// Play Animation Depending on Type
-	if (type == "run") {
-		animator.Play("RunAnimation");
-	} else if (type == "jump") {
-		animator.Play("JumpAnimation");
-	} else if (type == "float") {
-		animator.Play("FloatAnimation");
-	}
-}
+//function AnimatePlayer(type:String) {
+//	// Shortcut Variable for Animator
+//	var animator:Animator = (this.GetComponent.<Animator>() as Animator);
+//	
+//	// Stop All Existing Animations
+//	animator.StopPlayback();
+//	
+//	// Play Animation Depending on Type
+//	if (type == "run") {
+//		animator.Play("RunAnimation");
+//	} else if (type == "jump") {
+//		animator.Play("JumpAnimation");
+//	} else if (type == "float") {
+//		animator.Play("FloatAnimation");
+//	}
+//}
 
 function Collected(amount:Number) {
 	currentNumber += amount;
