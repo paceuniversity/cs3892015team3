@@ -206,6 +206,7 @@ function Collected(amount:Number) {
 function UpdateText() {
 	scoreText.text = currentNumber.ToString() + "/" + goalNumber.ToString();
 	checkpointText.text = "Wormhole #" + (checkpointLevel+1).ToString();
+	pauseMenu.GetComponent.<PauseMenu>().scoreText.text = "Score:  " + tempScore.ToString();
 }
 
 function UpdateUI() {

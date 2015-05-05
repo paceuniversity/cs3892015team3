@@ -15,6 +15,7 @@ var goHighscore:UnityEngine.UI.Text;
 var goButton:GameObject;
 var indicatorText:GameObject;
 var musicSource:AudioSource;
+var scoreText:UnityEngine.UI.Text;
 
 public static var time = 0.01;
 public static var overlayAlpha:Number = 1;
